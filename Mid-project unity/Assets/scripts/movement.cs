@@ -17,20 +17,20 @@ public class movement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow)) {
+        if (Input.GetKey(KeyCode.W)) {
             transform.position += new Vector3(speed * Time.deltaTime, 0f, 0f);
             martti.transform.rotation = Quaternion.Euler(0, 180f, 0);
             
         }
-        if (Input.GetKey(KeyCode.DownArrow)) {
+        if (Input.GetKey(KeyCode.S)) {
             transform.position -= new Vector3(speed * Time.deltaTime, 0f, 0f);
             martti.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        if (Input.GetKey(KeyCode.LeftArrow)) {
+        if (Input.GetKey(KeyCode.A)) {
             transform.position += new Vector3(0f, 0f, speed * Time.deltaTime);
             martti.transform.rotation = Quaternion.Euler(0, 90f, 0);
         }
-        if (Input.GetKey(KeyCode.RightArrow)) {
+        if (Input.GetKey(KeyCode.D)) {
             transform.position -= new Vector3(0f, 0f, speed * Time.deltaTime);
             martti.transform.rotation = Quaternion.Euler(0, -90f, 0);
         }

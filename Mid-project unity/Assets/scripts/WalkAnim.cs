@@ -10,8 +10,8 @@ public class WalkAnim : MonoBehaviour
     void Update()
     {
         // Check if any movement key is pressed
-        bool isMoving = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                        Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow);
+        bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) ||
+                        Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
 
         if (isMoving)
         {
