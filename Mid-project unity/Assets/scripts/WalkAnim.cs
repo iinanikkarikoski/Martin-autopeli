@@ -10,8 +10,8 @@ public class WalkAnim : MonoBehaviour
     void Update()
     {
         // Check if any movement key is pressed
-        bool isMoving = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) ||
-                        Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
+        bool isMoving = Input.GetAxis("JoystickHorizontal") != 0 || Input.GetAxis("JoystickVertical") != 0;
+        ;
 
         if (isMoving)
         {
