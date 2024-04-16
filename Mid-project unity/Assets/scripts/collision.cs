@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class collision : MonoBehaviour
+public class Collision : MonoBehaviour
 {
-    public GameObject wall;
     public GameObject text;
 
 
@@ -12,16 +11,16 @@ public class collision : MonoBehaviour
     {
         text.SetActive(false);
     }
-    void OnTriggerEnter(Collider collision) {
-        text.SetActive(true);
-    }
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.E)) {
-            wall.SetActive(false);
-            text.SetActive(false);
+    /*void OnCollisionEnter(Collider collision) {
+        if(collision.gameObject.tag == "Player") {
+            text.SetActive(true);
         }
     }
 
+    void OnCollisionExit(Collider collision) {
+        if(collision.gameObject.tag == "Player") {
+            text.SetActive(false);
+        }
+    }*/
 }

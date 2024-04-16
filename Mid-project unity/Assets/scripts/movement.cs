@@ -11,6 +11,7 @@ public class movement : MonoBehaviour
     private Rigidbody rb;
     private float _currentVelocity;
     public float smoothTime = 0.25f;
+    private Quaternion lastRotation; // Variable to store the last rotation
 
 
     private void Start()
@@ -27,9 +28,18 @@ public class movement : MonoBehaviour
         Vector3 movementDirection = new Vector3(vertical * speed, 0, -horizontal * speed);
         transform.Translate(movementDirection, Space.World);
 
-        var targetAngle = Mathf.Atan2(movementDirection.z, -movementDirection.x) * Mathf.Rad2Deg;
-        var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
-        transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+        if (movementDirection.magnitude > 0) // If moving
+        {
+            var targetAngle = Mathf.Atan2(movementDirection.z, -movementDirection.x) * Mathf.Rad2Deg;
+            var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
+            transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+            lastRotation = transform.rotation;
+        }
+        else // If not moving, apply the last rotation
+        {
+            transform.rotation = lastRotation;
+        }
+
 
         martti.transform.position = transform.position;
 
