@@ -10,7 +10,7 @@ public class GettingToCar : MonoBehaviour
     private bool isAttached = false;
     private Transform carTransform;
     public movement playerMovementScript;
-    public carMovement carMovementScript;
+    public Driving carMovementScript;
     public WalkAnim walkAnim;
     public Animator carAnim;
     
