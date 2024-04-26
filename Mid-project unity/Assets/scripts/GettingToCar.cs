@@ -9,10 +9,17 @@ public class GettingToCar : MonoBehaviour
     public GameObject car; 
     private bool isAttached = false;
     private Transform carTransform;
+    public Transform playerTransform;
     public movement playerMovementScript;
     public Driving carMovementScript;
     public WalkAnim walkAnim;
     public Animator carAnim;
+    public Camera mainCamera;
+    // Offset for the camera when attached to the car
+    public Vector3 cameraCarOffset = new Vector3(0f, 2f, -5f);
+
+    // Offset for the camera when attached to the player
+    public Vector3 cameraPlayerOffset = new Vector3(0f, 2f, -5f);
     
     void Start()
     {
@@ -36,7 +43,7 @@ public class GettingToCar : MonoBehaviour
 
     private void AttachToCar()
     {
-        Vector3 offsetPosition = new Vector3(0f, 1f, 0f);
+        Vector3 offsetPosition = new Vector3(0f, 0f, 0f);
 
         // Attach player to the car
         transform.SetParent(carTransform, true);
@@ -52,6 +59,10 @@ public class GettingToCar : MonoBehaviour
         // Enable car movement script
         carMovementScript.enabled = true;
         carAnim.enabled = false;
+
+        mainCamera.transform.SetParent(carTransform, false);
+        mainCamera.transform.localPosition = cameraCarOffset;
+        mainCamera.transform.localRotation = Quaternion.identity;
     }
 
     private void DetachFromCar()
@@ -72,6 +83,13 @@ public class GettingToCar : MonoBehaviour
 
         // Disable car movement script
         carMovementScript.enabled = false;
-        carAnim.enabled = true;
+        //carAnim.enabled = true;
+
+        // Re-parent the camera back to the player with specified offset
+        mainCamera.transform.SetParent(playerTransform, false);
+        mainCamera.transform.localPosition = new Vector3(0f, 1.5f, -2f); 
+        mainCamera.transform.localRotation = Quaternion.identity;
+
+        mainCamera.transform.LookAt(playerTransform.position + new Vector3(0f, 2f, -3f)); 
     }
 }

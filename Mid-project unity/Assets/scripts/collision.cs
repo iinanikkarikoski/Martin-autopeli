@@ -12,15 +12,15 @@ public class Collision : MonoBehaviour
         text.SetActive(false);
     }
 
-    /*void OnCollisionEnter(Collider collision) {
+    void OnTriggerEnter(Collider collision) {
         if(collision.gameObject.tag == "Player") {
             text.SetActive(true);
         }
     }
 
-    void OnCollisionExit(Collider collision) {
+    void OnTriggerExit(Collider collision) {
         if(collision.gameObject.tag == "Player") {
             text.SetActive(false);
         }
-    }*/
+    }
 }
