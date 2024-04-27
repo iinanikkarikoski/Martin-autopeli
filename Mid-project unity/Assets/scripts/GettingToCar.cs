@@ -15,10 +15,7 @@ public class GettingToCar : MonoBehaviour
     public WalkAnim walkAnim;
     public Animator carAnim;
     public Camera mainCamera;
-    // Offset for the camera when attached to the car
     public Vector3 cameraCarOffset = new Vector3(0f, 2f, -5f);
-
-    // Offset for the camera when attached to the player
     public Vector3 cameraPlayerOffset = new Vector3(0f, 2f, -5f);
     
     void Start()
@@ -35,10 +32,10 @@ public class GettingToCar : MonoBehaviour
         {
             AttachToCar();
         }
-        else if (Input.GetButtonDown(attachButton) && isAttached)
+        /**else if (Input.GetButtonDown(attachButton) && isAttached)
         {
             DetachFromCar();
-        }
+        }**/
     }
 
     private void AttachToCar()
@@ -65,7 +62,7 @@ public class GettingToCar : MonoBehaviour
         mainCamera.transform.localRotation = Quaternion.identity;
     }
 
-    private void DetachFromCar()
+    /**private void DetachFromCar()
     {
         // Detach player from the car
         transform.SetParent(null, true);
@@ -91,5 +88,5 @@ public class GettingToCar : MonoBehaviour
         mainCamera.transform.localRotation = Quaternion.identity;
 
         mainCamera.transform.LookAt(playerTransform.position + new Vector3(0f, 2f, -3f)); 
-    }
+    }*/
 }
