@@ -27550,7 +27550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9218998c1ef1f934f9b630130890d0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.01
+  speed: 0.02
   martti: {fileID: 6787401610259002618}
   jumpForce: 8
   smoothTime: 0.1
